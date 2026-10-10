@@ -15,7 +15,13 @@ async def main():
 
     # Retrieve all available tools from the configured MCP servers
     # These tools allow the agent to interact with external services
-    client = MultiServerMCPClient()
+    client = MultiServerMCPClient({
+        "math": {
+            "command": "python",
+            "args": ["MCP-Server.py"],
+            "transport": "stdio",
+        }
+    })
     tools = await client.get_tools()
 
     # Set up conversation memory using InMemorySaver
