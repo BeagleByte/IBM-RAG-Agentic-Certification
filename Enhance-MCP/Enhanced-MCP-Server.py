@@ -174,7 +174,7 @@ async def list_files_resource() -> dict:
         Dictionary containing list of items with metadata, or error message
     """
     try:
-        path = get_path("..")
+        path = get_path(".")
         if not path.exists() or not path.is_dir():
             return {"error": f"{path} is not a valid directory"}
 
